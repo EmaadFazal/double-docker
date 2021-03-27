@@ -1,0 +1,26 @@
+{
+    "AWSEBDockerrunVersion":2,
+    "containerDefinitions":[
+        {
+            "name":"client",
+            "image":"fazale/double-client",
+            "hostname":"client",
+            "essential":false,
+            "memory": 128 
+        },
+       
+        {
+            "name":"nginx",
+            "image":"fazale/double-nginx",
+            "essential":true,
+            "memory": 128,
+            "portMappings":[
+                {
+                    "hostPort":80,
+                    "containerPort":80
+                }
+            ],
+            "links":["client"]
+        }
+    ]
+}
