@@ -8,6 +8,13 @@
             "essential":false,
             "memory": 128 
         },
+        {
+            "name":"server",
+            "image":"fazale/double-server",
+            "hostname":"api",
+            "essential":false,
+            "memory": 128 
+        },
        
         {
             "name":"nginx",
@@ -20,7 +27,7 @@
                     "containerPort":80
                 }
             ],
-            "links":["client"]
+            "links":["client","server"]
         }
     ]
 }
